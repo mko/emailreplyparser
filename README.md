@@ -33,7 +33,7 @@ signatures:
 
     Hello
 
-    -- 
+    --
     Rick
 
 Not everyone follows this convention:
@@ -63,3 +63,8 @@ Apparently, prefixing lines with `>` isn't universal either:
     From: Bob [reply@reply.github.com]
     Sent: Monday, March 14, 2011 6:16 PM
     To: Rick
+
+
+### To run the tests
+* Install nodeunit  `npm install nodeunit`
+* Run the tests:   `nodeunit test/email_reply_parser_test.js`

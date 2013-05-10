@@ -1,6 +1,6 @@
 {
   "name": "emailreplyparser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js Port of GitHub's email_reply_parser.rb",
   "author": "Michael Owens <mk@mowens.com> (http://mowens.com/)",
   "repository": {
