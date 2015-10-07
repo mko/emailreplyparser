@@ -1,7 +1,9 @@
-# Email Reply Parser
+# Email Reply Parser - Totango Fork
 
-Node.js port of Github's EmailReplyParser, a small library to parse plain text email content.
-
+Totango fork of Node.js port of Github's EmailReplyParser, a small library to parse plain text email content.
+Enhancments include :
+- Splitting the email to an array for all the thread replays and the signature sections
+- added a from as a patern for thread start
 
 ## Known Issues
 <small>(Taken from Github's version)</small>
