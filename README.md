@@ -2,6 +2,23 @@
 
 Node.js port of Github's EmailReplyParser, a small library to parse plain text email content.
 
+## Usage
+
+``` js
+var EmailReplyParser = require('emailreplyparser')
+
+// To parse the reply from an email body
+var parsed = EmailReplyParser.parse(emailBody)
+
+// To parse the reply from an email body, preserving signatures
+var parsed = EmailReplyParser.parse(emailBody, true)
+
+// Reads in an email and produces an array of fragments.
+// Each fragment represents a part of the email.
+var fragments = EmailReplyParser.read(emailBody)
+```
+
+For examples, refer to the tests.
 
 ## Known Issues
 <small>(Taken from Github's version)</small>
@@ -65,6 +82,24 @@ Apparently, prefixing lines with `>` isn't universal either:
     To: Rick
 
 
-### To run the tests
-* Install nodeunit  `npm install nodeunit`
-* Run the tests:   `nodeunit test/email_reply_parser_test.js`
+## To run the tests
+
+* Install dependencies  `npm install`
+* Run the tests:   `npm test`
+
+## Upgrading to v1.0
+
+- The `EmailReplyParser` is now exported directly. If upgrading from pre 1.0, change the following:
+
+``` js
+var EmailReplyParser = require('emailreplyparser').EmailReplyParser
+```
+
+to:
+
+``` js
+var EmailReplyParser = require('emailreplyparser')
+```
+
+- The `parse_reply` function is now called `parse`.
+- The module no longer adds any methods to the `String` prototype. If your code was relying on the `trim`, `ltrim`, `strim`, `gsub`, `reverse` or `chomp` methods to be available on the prototype, you'll need to make changes.

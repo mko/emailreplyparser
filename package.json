@@ -1,6 +1,6 @@
 {
   "name": "emailreplyparser",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Node.js Port of GitHub's email_reply_parser.rb",
   "author": "Michael Owens <mk@mowens.com> (http://mowens.com/)",
   "repository": {
@@ -8,6 +8,20 @@
     "url": "https://github.com/mowens/emailreplyparser.git"
   },
   "main": "./lib/emailreplyparser",
-  "engines": { "node": ">= 0.4.0" },
-  "keywords": ["email", "parser", "emailreplyparser", "email_reply_parser"]
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "scripts": {
+    "test": "nodeunit test/email_reply_parser_test.js"
+  },
+  "keywords": [
+    "email",
+    "parser",
+    "emailreplyparser",
+    "email_reply_parser"
+  ],
+  "devDependencies": {
+    "lodash": "^4.13.1",
+    "nodeunit": "^0.9.1"
+  }
 }
