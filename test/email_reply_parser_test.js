@@ -5,13 +5,13 @@ var _  = require('underscore');
 var EmailReplyParser = require('../lib/emailreplyparser').EmailReplyParser;
 
 function get_email(name) {
-	var data = fs.readFileSync(__dirname + '/emails/' + name + '.txt', 'ascii');
+	var data = fs.readFileSync(__dirname + '/emails/' + name + '.txt', 'utf-8');
 
 	return EmailReplyParser.read(data);
 }
 
 function get_raw_email(name) {
-  	return fs.readFileSync(__dirname + '/emails/' + name + '.txt', 'ascii');
+  	return fs.readFileSync(__dirname + '/emails/' + name + '.txt', 'utf-8');
 }
 
 exports.test_reads_simple_body = function(test){
@@ -190,5 +190,24 @@ exports.test_correctly_reads_top_post_when_line_starts_with_On = function(test){
     test.ok((new RegExp('^-A')).test(reply.fragments[1].to_s()));
     test.ok((/^On [^\:]+\:/m).test(reply.fragments[2].to_s()));
     test.ok((new RegExp('^_')).test(reply.fragments[4].to_s()));
+    test.done();
+}
+
+exports.test_parse_out_send_from_multiword_gmail = function(test){
+    body = get_raw_email('test_parse_out_send_from_multiword_gmail');
+    test.equal("Awesome! I haven't had another problem with it.", EmailReplyParser.parse_reply(body));
+    test.done();
+}
+
+
+exports.test_parse_out_send_from_hotmail = function(test){
+    body = get_raw_email('email_hotmail');
+    test.equal("I replied", EmailReplyParser.parse_reply(body));
+    test.done();
+}
+
+exports.test_parse_out_send_from_french = function(test){
+    body = get_raw_email('email_french');
+    test.equal("On a 60% de test sur toute l'Infra", EmailReplyParser.parse_reply(body));
     test.done();
 }

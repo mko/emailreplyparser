@@ -8,6 +8,16 @@
     "url": "https://github.com/mowens/emailreplyparser.git"
   },
   "main": "./lib/emailreplyparser",
-  "engines": { "node": ">= 0.4.0" },
-  "keywords": ["email", "parser", "emailreplyparser", "email_reply_parser"]
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "keywords": [
+    "email",
+    "parser",
+    "emailreplyparser",
+    "email_reply_parser"
+  ],
+  "devDependencies": {
+    "underscore": "^1.8.3"
+  }
 }
